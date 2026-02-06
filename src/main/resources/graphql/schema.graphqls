@@ -1,0 +1,33 @@
+type Movie {
+    movieId: ID!
+    title: String!
+    synopsis: String
+    releaseDate: String!
+    durationMinutes: Int!
+    genre: String
+    language: String
+    posterUrl: String
+    createdAt: String!
+}
+
+input MovieInput {
+    movieId: ID!
+    title: String!
+    synopsis: String
+    releaseDate: String!
+    durationMinutes: Int!
+    genre: String
+    language: String
+    posterUrl: String
+    createdAt: String!
+}
+
+type Query {
+    getMovie(movieId: ID!): Movie
+    getMovies: [Movie!]!
+}
+
+type Mutation {
+    createMovie(movie: MovieInput!): Movie!
+    deleteMovie(movieId: ID!): Boolean!
+}
