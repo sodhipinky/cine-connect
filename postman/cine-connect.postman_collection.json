@@ -29,10 +29,138 @@
           ]
         },
         "body": {
-          "mode": "raw",
-          "raw": "{\n  \"operationName\": \"GetMovies\",\n  \"query\": \"query GetMovies {\\n  getMovies {\\n    movieId\\n    title\\n    releaseDate\\n    durationMinutes\\n    genre\\n  }\\n}\",\n  \"variables\": {}\n}"
+          "mode": "graphql",
+          "graphql": {
+            "query": "query GetMovies {\n  getMovies {\n    movieId\n    title\n    releaseDate\n    durationMinutes\n    genre\n  }\n}",
+            "variables": "{}"
+          }
         }
-      }
+      },
+      "response": [
+        {
+          "name": "Get Movies - Populated",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetMovies {\n  getMovies {\n    movieId\n    title\n    releaseDate\n    durationMinutes\n    genre\n  }\n}",
+                "variables": "{}"
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"getMovies\": [\n      {\n        \"movieId\": \"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa\",\n        \"title\": \"City of Echoes\",\n        \"releaseDate\": \"2024-11-15\",\n        \"durationMinutes\": 112,\n        \"genre\": \"Thriller\"\n      },\n      {\n        \"movieId\": \"bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb\",\n        \"title\": \"Desert Bloom\",\n        \"releaseDate\": \"2023-06-02\",\n        \"durationMinutes\": 98,\n        \"genre\": \"Drama\"\n      },\n      {\n        \"movieId\": \"cccccccc-cccc-cccc-cccc-cccccccccccc\",\n        \"title\": \"Starlight Run\",\n        \"releaseDate\": \"2025-03-21\",\n        \"durationMinutes\": 129,\n        \"genre\": \"Sci-Fi\"\n      }\n    ]\n  }\n}"
+        },
+        {
+          "name": "Get Movies - Empty",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetMovies {\n  getMovies {\n    movieId\n    title\n    releaseDate\n    durationMinutes\n    genre\n  }\n}",
+                "variables": "{}"
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"getMovies\": []\n  }\n}"
+        },
+        {
+          "name": "Get Movies - Error",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetMovies {\n  getMovies {\n    movieId\n    title\n    releaseDate\n    durationMinutes\n    genre\n  }\n}",
+                "variables": "{}"
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"getMovies\": null\n  },\n  \"errors\": [\n    {\n      \"message\": \"Failed to fetch movies\",\n      \"path\": [\n        \"getMovies\"\n      ],\n      \"extensions\": {\n        \"code\": \"INTERNAL_ERROR\"\n      }\n    }\n  ]\n}"
+        }
+      ]
     },
     {
       "name": "Get Movie By Id",
@@ -58,10 +186,138 @@
           ]
         },
         "body": {
-          "mode": "raw",
-          "raw": "{\n  \"operationName\": \"GetMovie\",\n  \"query\": \"query GetMovie($movieId: ID!) {\\n  getMovie(movieId: $movieId) {\\n    movieId\\n    title\\n    synopsis\\n    releaseDate\\n    durationMinutes\\n    genre\\n    language\\n    posterUrl\\n    createdAt\\n  }\\n}\",\n  \"variables\": {\n    \"movieId\": \"{{movieId}}\"\n  }\n}"
+          "mode": "graphql",
+          "graphql": {
+            "query": "query GetMovie($movieId: ID!) {\n  getMovie(movieId: $movieId) {\n    movieId\n    title\n    synopsis\n    releaseDate\n    durationMinutes\n    genre\n    language\n    posterUrl\n    createdAt\n  }\n}",
+            "variables": "{\"movieId\":\"{{movieId}}\"}"
+          }
         }
-      }
+      },
+      "response": [
+        {
+          "name": "Get Movie - Found",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetMovie($movieId: ID!) {\n  getMovie(movieId: $movieId) {\n    movieId\n    title\n    synopsis\n    releaseDate\n    durationMinutes\n    genre\n    language\n    posterUrl\n    createdAt\n  }\n}",
+                "variables": "{\"movieId\":\"{{movieId}}\"}"
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"getMovie\": {\n      \"movieId\": \"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa\",\n      \"title\": \"City of Echoes\",\n      \"synopsis\": \"A sound engineer uncovers a hidden message in old recordings.\",\n      \"releaseDate\": \"2024-11-15\",\n      \"durationMinutes\": 112,\n      \"genre\": \"Thriller\",\n      \"language\": \"English\",\n      \"posterUrl\": \"https://example.com/posters/echoes.jpg\",\n      \"createdAt\": \"2026-01-10T12:00:00\"\n    }\n  }\n}"
+        },
+        {
+          "name": "Get Movie - Not Found",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetMovie($movieId: ID!) {\n  getMovie(movieId: $movieId) {\n    movieId\n    title\n    synopsis\n    releaseDate\n    durationMinutes\n    genre\n    language\n    posterUrl\n    createdAt\n  }\n}",
+                "variables": "{\"movieId\":\"{{movieId}}\"}"
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"getMovie\": null\n  }\n}"
+        },
+        {
+          "name": "Get Movie - Invalid Id",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetMovie($movieId: ID!) {\n  getMovie(movieId: $movieId) {\n    movieId\n    title\n    synopsis\n    releaseDate\n    durationMinutes\n    genre\n    language\n    posterUrl\n    createdAt\n  }\n}",
+                "variables": "{\"movieId\":\"not-a-uuid\"}"
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"getMovie\": null\n  },\n  \"errors\": [\n    {\n      \"message\": \"Invalid UUID string: not-a-uuid\",\n      \"path\": [\n        \"getMovie\"\n      ],\n      \"extensions\": {\n        \"code\": \"BAD_REQUEST\"\n      }\n    }\n  ]\n}"
+        }
+      ]
     },
     {
       "name": "Create Movie",
@@ -90,7 +346,123 @@
           "mode": "raw",
           "raw": "{\n  \"operationName\": \"CreateMovie\",\n  \"query\": \"mutation CreateMovie($movie: MovieInput!) {\\n  createMovie(movie: $movie) {\\n    movieId\\n    title\\n    releaseDate\\n    durationMinutes\\n    genre\\n  }\\n}\",\n  \"variables\": {\n    \"movie\": {\n      \"movieId\": \"{{newMovieId}}\",\n      \"title\": \"{{newMovieTitle}}\",\n      \"synopsis\": \"{{newMovieSynopsis}}\",\n      \"releaseDate\": \"{{newMovieReleaseDate}}\",\n      \"durationMinutes\": {{newMovieDurationMinutes}},\n      \"genre\": \"{{newMovieGenre}}\",\n      \"language\": \"{{newMovieLanguage}}\",\n      \"posterUrl\": \"{{newMoviePosterUrl}}\",\n      \"createdAt\": \"{{newMovieCreatedAt}}\"\n    }\n  }\n}"
         }
-      }
+      },
+      "response": [
+        {
+          "name": "Create Movie - Success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operationName\": \"CreateMovie\",\n  \"query\": \"mutation CreateMovie($movie: MovieInput!) {\\n  createMovie(movie: $movie) {\\n    movieId\\n    title\\n    releaseDate\\n    durationMinutes\\n    genre\\n  }\\n}\",\n  \"variables\": {\n    \"movie\": {\n      \"movieId\": \"{{newMovieId}}\",\n      \"title\": \"{{newMovieTitle}}\",\n      \"synopsis\": \"{{newMovieSynopsis}}\",\n      \"releaseDate\": \"{{newMovieReleaseDate}}\",\n      \"durationMinutes\": {{newMovieDurationMinutes}},\n      \"genre\": \"{{newMovieGenre}}\",\n      \"language\": \"{{newMovieLanguage}}\",\n      \"posterUrl\": \"{{newMoviePosterUrl}}\",\n      \"createdAt\": \"{{newMovieCreatedAt}}\"\n    }\n  }\n}"
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"createMovie\": {\n      \"movieId\": \"dddddddd-dddd-dddd-dddd-dddddddddddd\",\n      \"title\": \"Example Movie\",\n      \"releaseDate\": \"2026-01-01\",\n      \"durationMinutes\": 120,\n      \"genre\": \"Drama\"\n    }\n  }\n}"
+        },
+        {
+          "name": "Create Movie - Validation Error",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operationName\": \"CreateMovie\",\n  \"query\": \"mutation CreateMovie($movie: MovieInput!) {\\n  createMovie(movie: $movie) {\\n    movieId\\n    title\\n    releaseDate\\n    durationMinutes\\n    genre\\n  }\\n}\",\n  \"variables\": {\n    \"movie\": {\n      \"movieId\": \"{{newMovieId}}\",\n      \"title\": \"\",\n      \"synopsis\": \"{{newMovieSynopsis}}\",\n      \"releaseDate\": \"{{newMovieReleaseDate}}\",\n      \"durationMinutes\": {{newMovieDurationMinutes}},\n      \"genre\": \"{{newMovieGenre}}\",\n      \"language\": \"{{newMovieLanguage}}\",\n      \"posterUrl\": \"{{newMoviePosterUrl}}\",\n      \"createdAt\": \"{{newMovieCreatedAt}}\"\n    }\n  }\n}"
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"createMovie\": null\n  },\n  \"errors\": [\n    {\n      \"message\": \"title must not be blank\",\n      \"path\": [\n        \"createMovie\"\n      ],\n      \"extensions\": {\n        \"code\": \"BAD_REQUEST\"\n      }\n    }\n  ]\n}"
+        },
+        {
+          "name": "Create Movie - Duplicate Id",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operationName\": \"CreateMovie\",\n  \"query\": \"mutation CreateMovie($movie: MovieInput!) {\\n  createMovie(movie: $movie) {\\n    movieId\\n    title\\n    releaseDate\\n    durationMinutes\\n    genre\\n  }\\n}\",\n  \"variables\": {\n    \"movie\": {\n      \"movieId\": \"{{movieId}}\",\n      \"title\": \"Duplicate Title\",\n      \"synopsis\": \"{{newMovieSynopsis}}\",\n      \"releaseDate\": \"{{newMovieReleaseDate}}\",\n      \"durationMinutes\": {{newMovieDurationMinutes}},\n      \"genre\": \"{{newMovieGenre}}\",\n      \"language\": \"{{newMovieLanguage}}\",\n      \"posterUrl\": \"{{newMoviePosterUrl}}\",\n      \"createdAt\": \"{{newMovieCreatedAt}}\"\n    }\n  }\n}"
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"createMovie\": null\n  },\n  \"errors\": [\n    {\n      \"message\": \"Duplicate entry for movieId\",\n      \"path\": [\n        \"createMovie\"\n      ],\n      \"extensions\": {\n        \"code\": \"CONFLICT\"\n      }\n    }\n  ]\n}"
+        }
+      ]
     },
     {
       "name": "Delete Movie",
@@ -116,10 +488,138 @@
           ]
         },
         "body": {
-          "mode": "raw",
-          "raw": "{\n  \"operationName\": \"DeleteMovie\",\n  \"query\": \"mutation DeleteMovie($movieId: ID!) {\\n  deleteMovie(movieId: $movieId)\\n}\",\n  \"variables\": {\n    \"movieId\": \"{{movieId}}\"\n  }\n}"
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation DeleteMovie($movieId: ID!) {\n  deleteMovie(movieId: $movieId)\n}",
+            "variables": "{\"movieId\":\"{{movieId}}\"}"
+          }
         }
-      }
+      },
+      "response": [
+        {
+          "name": "Delete Movie - Success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation DeleteMovie($movieId: ID!) {\n  deleteMovie(movieId: $movieId)\n}",
+                "variables": "{\"movieId\":\"{{movieId}}\"}"
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"deleteMovie\": true\n  }\n}"
+        },
+        {
+          "name": "Delete Movie - Not Found",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation DeleteMovie($movieId: ID!) {\n  deleteMovie(movieId: $movieId)\n}",
+                "variables": "{\"movieId\":\"00000000-0000-0000-0000-000000000099\"}"
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"deleteMovie\": true\n  }\n}"
+        },
+        {
+          "name": "Delete Movie - Invalid Id",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{graphqlPath}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{graphqlPath}}"
+              ]
+            },
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation DeleteMovie($movieId: ID!) {\n  deleteMovie(movieId: $movieId)\n}",
+                "variables": "{\"movieId\":\"bad-id\"}"
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"deleteMovie\": null\n  },\n  \"errors\": [\n    {\n      \"message\": \"Invalid UUID string: bad-id\",\n      \"path\": [\n        \"deleteMovie\"\n      ],\n      \"extensions\": {\n        \"code\": \"BAD_REQUEST\"\n      }\n    }\n  ]\n}"
+        }
+      ]
     }
   ],
   "variable": [
