@@ -12,10 +12,10 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
-@Entity
 /**
  * Represents a movie record persisted in the database.
  */
+@Entity
 public class Movie {
     @Id
     private UUID movieId;
