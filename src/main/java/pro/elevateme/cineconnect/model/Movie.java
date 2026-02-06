@@ -82,6 +82,15 @@ public class Movie {
     }
 
     /**
+     * Updates the movie identifier.
+     *
+     * @param movieId new movie identifier
+     */
+    public void setMovieId(UUID movieId) {
+        this.movieId = movieId;
+    }
+
+    /**
      * Returns the movie title.
      */
     public String getTitle() {
