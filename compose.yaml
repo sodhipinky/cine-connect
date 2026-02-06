@@ -18,7 +18,8 @@ services:
       - SPRING_DATASOURCE_USERNAME=cineconnect
       - SPRING_DATASOURCE_PASSWORD=cineconnect
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: mysql:8.4
@@ -29,9 +30,14 @@ services:
       - MYSQL_PASSWORD=cineconnect
       - MYSQL_ROOT_PASSWORD=root
     ports:
-      - 3306:3306
+      - 3307:3306
     volumes:
       - db-data:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "cineconnect", "-pcineconnect" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
